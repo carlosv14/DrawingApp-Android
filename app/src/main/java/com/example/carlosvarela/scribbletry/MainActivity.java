@@ -59,28 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             currPaint=(ImageButton)view;
         }
     }
-    private void createDirectoryAndSaveFile(Bitmap imageToSave, String fileName) {
-
-        File direct = new File(Environment.getExternalStorageDirectory() + "/DirName");
-
-        if (!direct.exists()) {
-            File wallpaperDirectory = new File("/sdcard/DirName/");
-            wallpaperDirectory.mkdirs();
-        }
-
-        File file = new File(new File("/sdcard/DirName/"), fileName);
-        if (file.exists()) {
-            file.delete();
-        }
-        try {
-            FileOutputStream out = new FileOutputStream(file);
-            imageToSave.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.flush();
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+  
     @Override
     public void onClick(View view){
         if(view.getId()==R.id.draw_btn){
